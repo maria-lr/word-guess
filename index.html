@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Hangman</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+
+  <section class='container' id='background'>
+    <h1>Guess the word!</h1>
+    <h1 id='word'></h1>
+    <h1 id='letters'></h1>
+    <br><br>
+    <form id='guessContainer'>
+      <label for='letter-guess'>Make your guess!</label><br><br>
+      <input type='text' id='letter-guess' maxlength="1" size="3" placeholder='Your guess here.'><br><br>
+      <input type='submit' id='guess' value='Guess'><br><br>
+      <button id="reset">Start over</button>
+    </form>
+    <br><br>
+    <h2>Chances:</h2>
+    <p id='chances'></p>
+    <h2>Number of Letters</h2>
+    <p id='letter-quantity'></p>
+  </section>
+</body>
+
+</html>
