@@ -10,20 +10,23 @@
 
   <section class='container' id='background'>
     <h1>Guess the word!</h1>
-    <h1 id='word'></h1>
+    <!-- <h1 id='word'></h1> -->
     <h1 id='letters'></h1>
     <br><br>
     <form id='guessContainer'>
-      <label for='letter-guess'>Make your guess!</label><br><br>
-      <input type='text' id='letter-guess' maxlength="1" size="3" placeholder='Your guess here.'><br><br>
-      <input type='submit' id='guess' value='Guess'><br><br>
-      <button id="reset">Start over</button>
+      <label for='letter-guess'>Make a guess!</label>
+      <input type='text' id='letter-guess' maxlength="1" size="3">
+      <!-- <input type='submit' id='guess' value='Guess'> -->
+
     </form>
-    <br><br>
+
+    <button id="guess">Guess</button>
     <h2>Chances:</h2>
-    <p id='chances'></p>
-    <h2>Number of Letters</h2>
-    <p id='letter-quantity'></p>
+    <h3 id='chances'></h3><br><br>
+    <h2 id='game-result'></h2>
+    <!-- <h2>Number of Letters</h2>
+    <h3 id='letter-quantity'></h3> -->
+    <button id="reset">Start over</button>
   </section>
 </body>
 
