@@ -31,36 +31,31 @@ async function startGame() {
 
   // When you click the guess button...
   guessButton.onclick = function (event) {
-
     const letterGuessed = document.getElementById("letter-guess").value;
     const allLetters = document.querySelectorAll('#letters div');
     document.getElementById("chances").innerText = numberOfChances;
 
-    if (word.includes('letterGuessed') === false) {
+    if (word.includes(letterGuessed) === false) {
       numberOfChances--
       document.getElementById("chances").innerText = numberOfChances;
     };
+    //below snippet doesn't work, need to fix/find a way to make it work.
+    if (allLetters.innerText === letterGuessed) {
+      guessButton.disabled = true;
+    }
 
+    // console.log("What is allLetters? ", allLetters);
+    // console.log("What is splitString? ", splitString);
+    // console.log("What is letterGuessed? ", letterGuessed)
     //Check if the letter guessed matches a letter in the mystery word.
     allLetters.forEach(function (div, index) {
+      // console.log("Running the forEach on index: ", index);
+      // console.log(`Does the letter guessed (${letterGuessed}) equal the item in the splitString array at position ${index}? `, letterGuessed === splitString[index])
       if (letterGuessed === splitString[index]) {
         div.innerText = letterGuessed;
       };
-      // document.getElementById("chances").innerText = numberOfChances;
-      // else {
-      //   numberOfChances--
-      // };
-
-
-      // allLetters.every(function (div, string) {
-      //   div.includes(string)
-      // })
-
     });
-    // if (word.includes('letterGuessed') === false) {
-    //   numberOfChances--
-    //   document.getElementById("chances").innerText = numberOfChances;
-    // };
+
 
 
     function winLoseMessage() {
@@ -69,13 +64,16 @@ async function startGame() {
       // console.log('all letters is...', arrayOfAllLetters)
 
 
-      const allSpacesFull = arrayOfAllLetters.every(function (div, string) {
-        div.innerText.includes(string)
+      const allSpacesFull = arrayOfAllLetters.every(function (div) {
+        return div.innerText.length === 1;
       });
+
       console.log(allSpacesFull);
 
       if (numberOfChances === 0) {
         gameResultMessage.innerText = 'You lose.'
+        guessButton.disabled = true;
+
       } else if (numberOfChances > 0 && allSpacesFull) {
         gameResultMessage.innerText = 'You win!'
       }
@@ -83,16 +81,6 @@ async function startGame() {
 
     winLoseMessage();
   };
-
-  // function winLoseMessage() {
-  //   if (numberOfChances === 0) {
-  //     gameResultMessage.innerText = 'You lose.'
-  //   } else if (numberOfChances > 0 &&  != "")
-  //     gameResultMessage.innerText = 'You win!'
-
-  // };
-
-  // winLoseMessage();
 
   startOverButton.onclick = function (event) {
     location.reload();
@@ -102,30 +90,3 @@ async function startGame() {
 };
 
 startGame();
-
-// const numberOfLetters = word.length;
-// document.getElementById("letter-quantity").innerText = numberOfLetters;
-// document.getElementById("word").innerText = word;
-
-
-// letterSpace.id = "letters-container"
-
-// function startOver() { }
-
-// function doesLetterMatch(){
-
-;
-
-// }
-
-
-      // if (lettersArea.includes(letterGuessed)) {
-      //   lettersArea.style.display = "inline-block";
-
-      // }
-      // if (word.includes(letterGuessed)) {
-
-      // allLetters.forEach()
-      // lettersArea.innerText = letterGuessed;
-
-
