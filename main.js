@@ -1,6 +1,11 @@
+// Async - await: forces the code to wait until the response is received from the API call (getting the word). Anything with await in front makes the code stop and finish the full process of what it's in front of before continuing to process the rest of the code. Fetch returns a promise.
 async function startGame() {
   const result = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+
+  // puts the API response (the word) into a JSON format rather than the format the "fetch" returns (you always want to turn this format into JSON)
   const formattedResult = await result.json();
+
+  // In this case, putting the response in to a JSON format returned an array, which is why there is an index[0] after formattedResult in order to grab the actual word.
   const word = formattedResult[0];
   const guessButton = document.getElementById("guess");
   const startOverButton = document.getElementById("reset");
