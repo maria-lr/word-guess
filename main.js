@@ -11,6 +11,7 @@ async function startGame() {
   const splitString = word.split("");
   let numberOfChances = 10;
   document.getElementById("chances").innerText = numberOfChances;
+  let arrayOfGuessedLetters = [];
 
   console.log('The word is:', word)
   console.log(splitString);
@@ -30,6 +31,7 @@ async function startGame() {
   splitString.forEach(createLetterSpace);
 
   // When you click the guess button...
+
   guessButton.onclick = function (event) {
     const letterGuessed = document.getElementById("letter-guess").value;
     const allLetters = document.querySelectorAll('#letters div');
@@ -40,21 +42,38 @@ async function startGame() {
       document.getElementById("chances").innerText = numberOfChances;
     };
     //below snippet doesn't work, need to fix/find a way to make it work.
-    if (allLetters.innerText === letterGuessed) {
-      guessButton.disabled = true;
+    // if (allLetters.innerText === letterGuessed) {
+    //   guessButton.disabled = true;
+    // }
+
+    if (arrayOfGuessedLetters.includes(letterGuessed)) {
+      alert('You cannot guess the same letter twice.')
+      return
     }
+    else {
+      arrayOfGuessedLetters.push(letterGuessed)
+    }
+
+    console.log(arrayOfGuessedLetters)
 
     // console.log("What is allLetters? ", allLetters);
     // console.log("What is splitString? ", splitString);
     // console.log("What is letterGuessed? ", letterGuessed)
-    //Check if the letter guessed matches a letter in the mystery word.
+    // Check if the letter guessed matches a letter in the mystery word.
     allLetters.forEach(function (div, index) {
       // console.log("Running the forEach on index: ", index);
       // console.log(`Does the letter guessed (${letterGuessed}) equal the item in the splitString array at position ${index}? `, letterGuessed === splitString[index])
       if (letterGuessed === splitString[index]) {
         div.innerText = letterGuessed;
       };
+      // if (letterGuessed != 1) {
+      //   guessButton.disabled = true;
+      // }
+
     });
+    // function checkLetters(inputTxt) {
+    //   const letters = /[A-za-z]/
+    //   if (div.innerText)
 
 
 
