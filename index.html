@@ -3,6 +3,8 @@
 <head>
   <title>Hangman</title>
   <link href="style.css" type="text/css" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;800&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
   <script src="main.js" defer></script>
 </head>
 
@@ -12,17 +14,18 @@
     <h1>Guess the word!</h1>
     <!-- <h1 id='word'></h1> -->
     <h1 id='letters'></h1>
-    <br><br>
     <form id='guessContainer'>
-      <label for='letter-guess'>Make a guess!</label>
-      <input type='text' id='letter-guess' maxlength="1" size="3" pattern="[A-Za-z] {1}">
+      <label for='letter-guess'>
+        <h2>Guess a letter!</h2>
+      </label>
+      <input type='text' id='letter-guess' maxlength="1" size="3" pattern="[A-Za-z]">
       <!-- <input type='submit' id='guess' value='Guess'> -->
 
     </form>
 
     <button id="guess">Guess</button>
     <h2>Chances:</h2>
-    <h3 id='chances'></h3><br><br>
+    <h3 id='chances'></h3>
     <h2 id='game-result'></h2>
     <!-- <h2>Number of Letters</h2>
     <h3 id='letter-quantity'></h3> -->
