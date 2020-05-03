@@ -3,34 +3,66 @@
 <head>
   <title>Hangman</title>
   <link href="style.css" type="text/css" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;800&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
   <script src="main.js" defer></script>
 </head>
 
 <body>
+  <section class='overallContainer' id='background'>
+    <section class='container'>
 
-  <section class='container' id='background'>
-    <h1>Guess the word!</h1>
-    <!-- <h1 id='word'></h1> -->
-    <h1 id='letters'></h1>
-    <form id='guessContainer'>
-      <label for='letter-guess'>
-        <h2>Guess a letter!</h2>
-      </label>
-      <input type='text' id='letter-guess' maxlength="1" size="3" pattern="[A-Za-z]">
-      <!-- <input type='submit' id='guess' value='Guess'> -->
+      <h1 class='title'>Guess the word!</h1>
 
-    </form>
+      <h1 id='letters'></h1>
 
-    <button id="guess">Guess</button>
-    <h2>Chances:</h2>
-    <h3 id='chances'></h3>
-    <h2 id='game-result'></h2>
-    <!-- <h2>Number of Letters</h2>
-    <h3 id='letter-quantity'></h3> -->
-    <button id="reset">Start over</button>
+      <br><br>
+
+      <section class='guess-container'>
+        <section class='guess-item'>
+          <h2>Guess a letter!</h2>
+        </section>
+
+        <br><br>
+
+        <form>
+          <!-- id='guessContainer' -->
+          <!-- <label for='letter-guess'>
+            <h2>Guess a letter!</h2>
+          </label> -->
+          <input type='text' id='letter-guess' maxlength="1" size="3" pattern="[A-Za-z]">
+        </form>
+        <button id="guess">Guess</button>
+      </section>
+      <br><br>
+
+      <section class='guessed-letters'>
+        <section class='letter-item'>
+          <h2>Letters guessed: </h2>
+        </section>
+        <h3 id='guessed-letters'></h3>
+      </section>
+      <br><br>
+      <section class='chances-container'>
+        <section class='chances-item'>
+          <h2>Chances left:</h2>
+        </section>
+        <section class='chances-item'>
+          <h3 id='chances'></h3>
+        </section>
+        <section class='chances-item'>
+          <h2 id='game-result'></h2>
+        </section>
+      </section>
+      <br><br>
+
+      <button id="reset">Start over</button>
+
+
+
+    </section>
   </section>
+
+
 </body>
 
 </html>

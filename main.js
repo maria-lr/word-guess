@@ -31,7 +31,6 @@ async function startGame() {
   splitString.forEach(createLetterSpace);
 
   // When you click the guess button...
-
   guessButton.onclick = function (event) {
     const letterGuessed = document.getElementById("letter-guess").value;
     const allLetters = document.querySelectorAll('#letters div');
@@ -41,10 +40,6 @@ async function startGame() {
       numberOfChances--
       document.getElementById("chances").innerText = numberOfChances;
     };
-    //below snippet doesn't work, need to fix/find a way to make it work.
-    // if (allLetters.innerText === letterGuessed) {
-    //   guessButton.disabled = true;
-    // }
 
     if (arrayOfGuessedLetters.includes(letterGuessed)) {
       alert('You cannot guess the same letter twice.')
@@ -52,37 +47,19 @@ async function startGame() {
     }
     else {
       arrayOfGuessedLetters.push(letterGuessed)
+      document.getElementById("guessed-letters").innerText = arrayOfGuessedLetters;
     }
 
     console.log(arrayOfGuessedLetters)
 
-    // console.log("What is allLetters? ", allLetters);
-    // console.log("What is splitString? ", splitString);
-    // console.log("What is letterGuessed? ", letterGuessed)
-    // Check if the letter guessed matches a letter in the mystery word.
     allLetters.forEach(function (div, index) {
-      // console.log("Running the forEach on index: ", index);
-      // console.log(`Does the letter guessed (${letterGuessed}) equal the item in the splitString array at position ${index}? `, letterGuessed === splitString[index])
       if (letterGuessed === splitString[index]) {
         div.innerText = letterGuessed;
       };
-      // if (letterGuessed != 1) {
-      //   guessButton.disabled = true;
-      // }
-
     });
-    // function checkLetters(inputTxt) {
-    //   const letters = /[A-za-z]/
-    //   if (div.innerText)
-
-
 
     function winLoseMessage() {
       const arrayOfAllLetters = Array.prototype.slice.call(allLetters);
-
-      // console.log('all letters is...', arrayOfAllLetters)
-
-
       const allSpacesFull = arrayOfAllLetters.every(function (div) {
         return div.innerText.length === 1;
       });
@@ -109,3 +86,8 @@ async function startGame() {
 };
 
 startGame();
+
+// function name(letter) {
+//   arrayOfGuessedLetters.
+
+// }
